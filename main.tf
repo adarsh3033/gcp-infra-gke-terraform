@@ -34,3 +34,8 @@ resource "google_container_node_pool" "primary_nodes" {
     machine_type = "e2-medium"
   }
 }
+
+resource "google_project_service" "compute_api" {
+  project = var.project_id
+  service = "compute.googleapis.com"
+}
