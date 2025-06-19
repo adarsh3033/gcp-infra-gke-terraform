@@ -1,0 +1,34 @@
+name: Terraform Apply (on merge)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.tf'
+      - 'terraform.tfvars'
+
+jobs:
+  terraform-apply:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Auth to GCP
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan (for logs)
+        run: terraform plan -var-file=terraform.tfvars
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -var-file=terraform.tfvars
