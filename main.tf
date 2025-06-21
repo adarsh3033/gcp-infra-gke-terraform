@@ -11,12 +11,12 @@ resource "google_project_service" "compute_api" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "devops-vpc-new-2"
+  name = "devops-vpc-new-3"
    auto_create_subnetworks = true
 }
 
 resource "google_container_cluster" "primary" {
-  name     = "devops-cluster-new-2"
+  name     = "devops-cluster-new-3"
   location = var.region
 
   network                  = google_compute_network.vpc_network.name
@@ -34,7 +34,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary_nodes" {
-  name       = "primary-node-pool-new-2"
+  name       = "primary-node-pool-new-3"
   cluster    = google_container_cluster.primary.name
   location   = var.region
   node_count = 2                            
