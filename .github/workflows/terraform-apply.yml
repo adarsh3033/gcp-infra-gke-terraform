@@ -31,9 +31,11 @@ jobs:
           terraform plan \
             -var="project_id=${{ secrets.GCP_PROJECT_ID }}" \
             -var="region=${{ secrets.GCP_REGION }}"
+             -var="service_account_email=${{ secrets.GCP_SA_EMAIL }}"
 
       - name: Apply Terraform Changes
         run: |
           terraform apply -auto-approve \
             -var="project_id=${{ secrets.GCP_PROJECT_ID }}" \
             -var="region=${{ secrets.GCP_REGION }}"
+             -var="service_account_email=${{ secrets.GCP_SA_EMAIL }}"
