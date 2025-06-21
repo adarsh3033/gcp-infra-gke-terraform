@@ -4,7 +4,7 @@ provider "google" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "devops-vpc"
+  name = "devops-vpc2"
 }
 
 resource "google_container_cluster" "primary" {
