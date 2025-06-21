@@ -1,8 +1,3 @@
-variable "project_id" {
-  description = "The GCP project ID"
-  type        = string
-}
-
 # Cloud Resource Manager API
 resource "google_project_service" "cloudresourcemanager" {
   project = var.project_id
