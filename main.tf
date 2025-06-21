@@ -16,7 +16,7 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_container_cluster" "primary" {
-  name     = "devops-cluster-new"
+  name     = "devops-cluster-new-2"
   location = var.region
 
   network                  = google_compute_network.vpc_network.name
@@ -34,7 +34,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary_nodes" {
-  name       = "primary-node-pool-new"
+  name       = "primary-node-pool-new-2"
   cluster    = google_container_cluster.primary.name
   location   = var.region
   node_count = 2                            
