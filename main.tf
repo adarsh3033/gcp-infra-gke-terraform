@@ -11,7 +11,7 @@ resource "google_project_service" "compute_api" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "devops-vpc-new"
+  name = "devops-vpc-new-2"
    auto_create_subnetworks = true
 }
 
