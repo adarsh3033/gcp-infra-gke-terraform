@@ -9,7 +9,7 @@ resource "google_project_service" "compute_api" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "devops-vpc"
+  name = "devops-vpc-new"
 }
 
 resource "google_container_cluster" "primary" {
