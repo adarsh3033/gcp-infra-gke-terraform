@@ -1,6 +1,8 @@
 provider "google" {
   project = var.project_id
   region  = var.region
+
+   impersonate_service_account = var.service_account_email
 }
 
 resource "google_project_service" "compute_api" {
@@ -9,7 +11,8 @@ resource "google_project_service" "compute_api" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "devops-vpc-2"
+  name = "devops-vpc-new"
+   auto_create_subnetworks = true
 }
 
 resource "google_container_cluster" "primary" {
